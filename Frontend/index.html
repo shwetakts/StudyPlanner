@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPlanner - Smart Study Management</title>
+    <link rel="stylesheet" href="landing-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Sign-In API -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="centered-box">
+        <div class="content-left">
+            <h1>StudyPlanner</h1>
+            <p>Transform your study sessions with AI-powered planning. Create personalized schedules, track progress, and boost productivity with our intelligent study assistant.</p>
+            <ul>
+                <li><i class="fas fa-robot"></i> AI-Powered Study Plans</li>
+                <li><i class="fas fa-chart-line"></i> Track Your Progress</li>
+                <li><i class="fas fa-hourglass-half"></i> Pomodoro Timer</li>
+                <li><i class="fas fa-search"></i> Smart Resource Finder</li>
+            </ul>
+        </div>
+        <div class="content-right">
+            <h2>Welcome!</h2>
+            <p>Sign in to start your learning journey</p>
+            
+            <!-- Google Sign-In Button -->
+            <div id="signInButton" class="google-signin-btn"></div>
+            
+            <!-- Sign Out Button (hidden by default) -->
+            <button id="signOutButton" class="sign-out-btn" style="display: none;">Sign Out</button>
+            
+            <!-- Status Message -->
+            <div id="statusMessage" class="status-message"></div>
+        </div>
+    </div>
+
+    <script src="landing-script.js"></script>
+</body>
+</html>

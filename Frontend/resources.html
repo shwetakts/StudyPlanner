@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPlanner - Resource Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <header>
+        <div class="header-content">
+            <button id="sidebarToggle" class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="label">StudyPlanner</h1>
+            <button id="backButton" class="back-button" onclick="history.back()" style="background: none; border: none; color: #667eea; font-size: 1.2rem; cursor: pointer; padding: 0.5rem 1rem;">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <!-- User info will be dynamically added here -->
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <button id="sidebarCollapse" class="sidebar-collapse">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+                <li><a href="timer.html"><i class="fas fa-clock"></i> Timer</a></li>
+                <li><a href="resources.html"><i class="fas fa-search"></i> Resource Finder</a></li>  <!-- ADD THIS LINE -->
+                <li>
+                    <div class="theme-switch-wrapper">
+                        <i class="fas fa-sun"></i>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="themeToggle" />
+                            <div class="slider round"></div>
+                        </label>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="mainContent">
+        <div class="container">
+            <!-- Search Header -->
+            <div class="resource-header" style="text-align: center; margin-bottom: 2rem;">
+                <h1 style="color: white; margin-bottom: 0.5rem;">
+                    <i class="fas fa-search"></i> Resource Finder
+                </h1>
+                <p id="taskContext" style="color: white; opacity: 0.9;"></p>
+            </div>
+
+            <!-- Search Section -->
+            <div class="resource-search-section" style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <input type="text" id="searchTopic" placeholder="Enter topic to search (e.g., Calculus, Python, History)" 
+                           style="flex: 2; padding: 1rem; border: none; border-radius: 12px; font-size: 1rem;">
+                    <select id="searchSubject" style="padding: 1rem; border: none; border-radius: 12px; background: white;">
+                        <option value="">All Subjects</option>
+                        <option value="programming">💻 Programming</option>
+                        <option value="mathematics">📐 Mathematics</option>
+                        <option value="science">🔬 Science</option>
+                        <option value="history">📜 History</option>
+                        <option value="language">🗣️ Language</option>
+                    </select>
+                </div>
+                
+                <div style="display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <label style="color: white; display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" value="text" checked> 📝 Text/Articles
+                    </label>
+                    <label style="color: white; display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" value="video" checked> 🎥 Video Tutorials
+                    </label>
+                    <label style="color: white; display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" value="audio"> 🎧 Audio/Podcasts
+                    </label>
+                    <select id="difficultySelect" style="padding: 0.5rem; border-radius: 8px;">
+                        <option value="beginner">🌱 Beginner</option>
+                        <option value="intermediate" selected>📘 Intermediate</option>
+                        <option value="advanced">🚀 Advanced</option>
+                    </select>
+                </div>
+                
+                <button id="searchResourcesBtn" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 1rem; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%;">
+                    <i class="fas fa-search"></i> Find Resources
+                </button>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" style="display: none; text-align: center; padding: 3rem;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: white;"></i>
+                <p style="color: white; margin-top: 1rem;">Finding the best resources for you...</p>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" style="display: none;">
+                <div id="summarySection" style="background: rgba(102, 126, 234, 0.2); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem;"></div>
+                
+                <h3 style="color: white; margin-bottom: 1rem;">
+                    <i class="fas fa-list"></i> Recommended Resources
+                </h3>
+                
+                <div id="resourcesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;"></div>
+                
+                <div id="recommendationsSection" style="background: rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; margin-top: 2rem;"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

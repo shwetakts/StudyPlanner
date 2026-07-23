@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner - Generate Plan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button id="sidebarToggle" class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="label">STUDY PLANNER</h1>
+            <!-- User info will be dynamically added here by script.js -->
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <button id="sidebarCollapse" class="sidebar-collapse">
+                <i class="fas fa-times"></i>  <!-- Changed from fa-bars to fa-times for consistency -->
+            </button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+                <li><a href="timer.html"><i class="fas fa-clock"></i> Timer</a></li>
+                <li><a href="resources.html"><i class="fas fa-search"></i> Resource Finder</a></li>
+                <li>
+                    <div class="theme-switch-wrapper">
+                        <i class="fas fa-sun"></i>  <!-- Changed from fa-solid to fas for consistency -->
+                        <label class="theme-switch">
+                            <input type="checkbox" id="themeToggle" />
+                            <div class="slider round"></div>
+                        </label>
+                        <i class="fas fa-moon"></i>  <!-- Added moon icon for better UX -->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="mainContent">
+        <div class="container">
+            <h2>Study Plan Generator</h2>
+            
+            <form id="studyPlanForm">
+                <div class="form-group">
+                    <label for="tasks">Tasks (comma separated):</label>
+                    <input type="text" id="tasks" name="tasks" placeholder="e.g., Math, Science, History" required>
+                </div>
+                <div class="form-group">
+                    <label for="timeAvailable">Time Available (e.g., 2 hours, 3 days):</label>
+                    <input type="text" id="timeAvailable" name="timeAvailable" placeholder="e.g., 2 hours, 3 days" required>
+                </div>
+                <button type="submit" id="generateBtn">Generate Plan</button>
+            </form>
+
+            <div id="studyPlanResult" class="result"></div>
+            <button id="savePlanButton" class="save-plan-btn" style="display: none;">Save Plan</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
