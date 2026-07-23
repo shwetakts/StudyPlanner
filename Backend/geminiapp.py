@@ -517,7 +517,7 @@ async def get_quick_suggestions(topic: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 # ========== Configure Gemini API ==========
-GEMINI_API_KEY = "AIzaSyDcqYtGn4wudS5IN5MGM4By1jJcbmAJsZY"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Enable CORS
